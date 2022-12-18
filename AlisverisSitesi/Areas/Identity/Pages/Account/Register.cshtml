@@ -1,0 +1,44 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container IndexDiv">
+
+    <div class="row">
+        <div class="col-4 container CenteredContainer text-center ">
+            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <h5>yeni hesap oluştur</h5>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <input asp-for="Input.Ad" class="form-control" placeholder="Ad " />
+                </div>
+                <div class="form-group">
+                    <input asp-for="Input.Soyad" class="form-control" placeholder="Soyad " />
+                </div>
+                <div class="form-group">
+                    <input asp-for="Input.Email" class="form-control" placeholder="Mail " />
+                </div>
+                <div class="form-group">
+                    <input asp-for="Input.Password" class="form-control" placeholder="şifre " />
+                </div>
+
+
+                <div class="form-group">
+                    <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Şifre tekrar" />
+                </div>
+
+
+
+                <input id="registerSubmit" type="submit" class="btn btn-danger" value="Kayit ol"></input>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

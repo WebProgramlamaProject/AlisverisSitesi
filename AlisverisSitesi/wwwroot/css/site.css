@@ -14,5 +14,60 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+ 
+}
+
+
+
+.CenteredContainer {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+}
+
+    .CenteredContainer form {
+        background: linear-gradient(to left,#28347d,#19767D);
+        padding: 4em;
+        border-radius: 20px;
+        color: white;
+    }
+
+
+.CenteredContainer form a {
+   text-decoration:none;
+   color:white;
+   font-size:15px;
+}
+.CenteredContainer form a:hover {
+    text-shadow:2px 2px 6px #000040;
+
+}
+        .CenteredContainer form input {
+            border-radius: 20px;
+            margin: 10px;
+        }
+    .CenteredContainer form .btn {
+
+        width:150px;
+        font-size:1em;
+    }
+
+    .CenteredContainer form:hover{
+        margin:8px;
+    }
+
+    .CenteredContainer a,input:focus,submit,button:focus{
+        outline:none;
+        margin:2px;
+
+    }
+.IndexDiv {
+    position: fixed;
+    background: linear-gradient(to right,#C4E0E0,#C4E0F9);
+    top: 8%;
+    left: 0;
+    min-height: 85%;
+    min-width: 100%;
 }
