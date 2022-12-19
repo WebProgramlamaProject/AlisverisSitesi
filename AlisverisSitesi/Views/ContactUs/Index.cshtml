@@ -1,0 +1,52 @@
+﻿@model IEnumerable<AlisverisSitesi.Models.ContactUs>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container IndexDiv">
+
+<table class=" aaa table">
+        <thead class="container aas">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Message)
+            </th>
+           
+        </tr>
+    </thead>
+        <tbody class="container aas">
+@foreach (var item in Model) {
+            <tr >
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+
+            <td >
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+          
+                <td>
+                    @Html.DisplayFor(modelItem => item.Message)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

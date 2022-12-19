@@ -32,18 +32,22 @@
                         <li class="nav-item">
                                 <a class="nav-link  @menuTextColor" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                                <a class="nav-link  @menuTextColor" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                       
                         @if (User.Identity.IsAuthenticated)
                         {
                             if (User.IsInRole("Admin"))
                             {
                                 <li class="nav-item">
-                                        <a class="nav-link @menuTextColor" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
-                                </li>
+                                        <a class="nav-link @menuTextColor" asp-area="" asp-controller="ContactUs" asp-action="Index">Gelen Mesajlar</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link  @menuTextColor" asp-area="" asp-controller="ContactUs" asp-action="Create">İletişim</a>
+                                    </li>
+                                }
                             }
-                        }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

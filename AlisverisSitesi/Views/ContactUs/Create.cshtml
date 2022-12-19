@@ -1,0 +1,47 @@
+﻿@model AlisverisSitesi.Models.ContactUs
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<div class="container IndexDiv">
+<div class="row">
+        <div class="col-4 container CenteredContainer text-center ">
+        <form asp-action="Create">
+                <h4>iletişim Sayfası </h4>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+
+                    <input asp-for="Name" class="form-control" placeholder="Ad Soyad" />
+               
+            </div>
+           
+            <div class="form-group">
+
+                    <input asp-for="Email" class="form-control" placeholder="Email " />
+               
+            </div>
+            <div class="form-group">
+
+                    <input asp-for="Subject" class="form-control" placeholder="Konu " />
+              
+            </div>
+                <div class="form-group">
+
+                    <input asp-for="Message" class="form-control" placeholder="Message " />
+
+                </div>
+                <input  type="submit" class="btn btn-danger" value="MSj At"></input>
+           
+        </form>
+    </div>
+</div>
+
+
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

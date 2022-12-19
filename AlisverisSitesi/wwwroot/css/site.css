@@ -45,7 +45,7 @@ body {
 
 }
         .CenteredContainer form input {
-            border-radius: 20px;
+            border-radius: 15px;
             margin: 10px;
         }
     .CenteredContainer form .btn {
@@ -70,4 +70,20 @@ body {
     left: 0;
     min-height: 85%;
     min-width: 100%;
+
+}
+
+.aas {
+    background: linear-gradient(to left,#28347d,#19767D);
+    color: white;
+    font-size: 15px;
+    
+}
+.aaa {
+    max-width: 100%;
+    
+}
+.sss {
+   margin-left :150px;
+    max-width: 20%;
 }
