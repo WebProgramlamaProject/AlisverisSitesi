@@ -46,7 +46,10 @@ namespace AlisverisSitesi.Controllers
         {
             return View();
         }
-
+        public IActionResult Msj()
+        {
+            return View();
+        }
         // POST: ContactUs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -58,7 +61,7 @@ namespace AlisverisSitesi.Controllers
             {
                 _context.Add(contactUs);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Msj));
             }
             return View(contactUs);
         }
