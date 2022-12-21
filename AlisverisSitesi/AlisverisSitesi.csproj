@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-AlisverisSitesi-09df1fbf-1b79-4ab0-885c-5e3e8145d785</UserSecretsId>
   </PropertyGroup>

@@ -8,13 +8,10 @@ namespace AlisverisSitesi.Models
 {
     public class UrunContext : DbContext
     {
-        public DbSet<Urun>? Urunlar { get; set; }
-        public DbSet<Category>? Categories { get; set; }
-        public DbSet<ContactUs>? Contacts { get; set; }
-        public DbSet<Teammember>? Teammembers { get; set; }
-        public DbSet<Siparis>? Siparisler { get; set; }
-
-        public DbSet<Musteri>? Musteriler { get; set; }
+        public DbSet<Urun> Urunlar { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<ContactUs> Contacts { get; set; }
+       
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
