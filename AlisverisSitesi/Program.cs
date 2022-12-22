@@ -10,6 +10,14 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
+
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.IsEssential = true;
+});
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.Configure<IdentityOptions>(options =>
 
@@ -33,6 +41,8 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+app.UseSession();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -52,6 +62,11 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "Urunlar",
+    pattern: "/Urunlar/{categorySlug?}",
+    defaults: new { controller = "Urunlar", action = "Index" });
 
 app.MapControllerRoute(
     name: "default",

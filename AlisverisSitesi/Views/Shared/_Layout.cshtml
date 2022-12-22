@@ -60,21 +60,21 @@
     </header>
     </div>
     <div class="container">
-        <main role="main" class="pb-3">
-            <div class="row">
-                <div class="col-3">
-                    <vc:categories-view-copnent></vc:categories-view-copnent>
+    <main role="main" class="pb-3">
+        <div class="row">
+            <div class="col-3">
+                    <vc:categories-view-copnent/>
 
-                   <!--<div class="bg-success mt-3 p-3 text-white">
-                        <vc:small-cart><</vc:small-cart>
-                    </div>-->
+                <div class="bg-success mt-3 p-3 text-white">
+                        <vc:small-cart/>
                 </div>
-                <div class="col">
-                    <partial name="_NotificationPartial" />
-            @RenderBody()
-               </div>
             </div>
-        </main>
+            <div class="col">
+                <partial name="_NotificationPartial" />
+                @RenderBody()
+            </div>
+        </div>
+    </main>
     </div>
 
     <footer class="border-top footer text-muted" style="background: linear-gradient(to right,#283408,#197696);">
