@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace AlisverisSitesi.Models
 
 {
-    public class ContactUs
+    public class ContactUs 
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "bu alan zorunlu")]

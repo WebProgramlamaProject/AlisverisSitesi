@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AlisverisSitesi.Models
 {
-    public class Urun
+    public class Urun 
     {
         public int Id { get; set; }
 

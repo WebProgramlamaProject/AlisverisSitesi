@@ -1,4 +1,5 @@
 using AlisverisSitesi.Data;
+using AlisverisSitesi.Infrastructure;
 using AlisverisSitesi.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -56,5 +57,8 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
+
+//var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<UrunContext>();
+//SeedData.SeedDatabase(context);
 
 app.Run();

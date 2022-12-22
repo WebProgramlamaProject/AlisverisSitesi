@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using AlisverisSitesi.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
+using AlisverisSitesi.Data;
 
 namespace AlisverisSitesi.Controllers
 {

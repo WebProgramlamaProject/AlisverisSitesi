@@ -6,9 +6,14 @@ namespace AlisverisSitesi.Data
 {
     public class ApplicationDbContext : IdentityDbContext<UserDetails>
     {
+        
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+
         }
+       
+
     }
 }
