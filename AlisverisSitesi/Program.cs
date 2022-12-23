@@ -64,16 +64,18 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "Areas",
+    pattern: "{area:exists}/{controller=Urunler}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
     name: "Urunlar",
     pattern: "/Urunlar/{categorySlug?}",
-    defaults: new { controller = "Urunlar", action = "Index" });
+    defaults: new { controller = "Uruns", action = "Index" });
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
-//var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<UrunContext>();
-//SeedData.SeedDatabase(context);
 
 app.Run();

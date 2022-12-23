@@ -45,7 +45,7 @@ namespace AlisverisSitesi.Controllers
             return Redirect(Request.Headers["Referer"].ToString());
         }
 
-        public async Task<IActionResult> Decrease(long id)
+        public async Task<IActionResult> Decrease(int id)
         {
             List<CartItem> cart = HttpContext.Session.GetJson<List<CartItem>>("Cart");
 
@@ -74,7 +74,7 @@ namespace AlisverisSitesi.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> Remove(long id)
+        public async Task<IActionResult> Remove(int id)
         {
             List<CartItem> cart = HttpContext.Session.GetJson<List<CartItem>>("Cart");
 
