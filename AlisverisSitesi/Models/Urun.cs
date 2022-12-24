@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AlisverisSitesi.Infrastructure.Validation;
 
 namespace AlisverisSitesi.Models
 {
@@ -24,14 +25,14 @@ namespace AlisverisSitesi.Models
         [Range(0.01, double.MaxValue, ErrorMessage = "Please enter a value")]
         [Column(TypeName = "decimal(8, 2)")]
         public decimal Price { get; set; }
-
+        [Required,Range(1, int.MaxValue, ErrorMessage = "You must choose a category")]
         public int CategoryId { get; set; }
 
         public Category Category { get; set; }
 
         public string Image { get; set; } = "noimage.png";
         [NotMapped]
-        //[FileExtension]
+        [FileExtension]
         public IFormFile ImageUpload { get; set; }
     }
 }

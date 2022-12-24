@@ -18,17 +18,28 @@ builder.Services.AddSession(options =>
     options.IdleTimeout = TimeSpan.FromMinutes(30);
     options.Cookie.IsEssential = true;
 });
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<UrunContext>().AddDefaultTokenProviders();
 builder.Services.Configure<IdentityOptions>(options =>
-
 {
-
-    options.Password.RequireNonAlphanumeric = false;
     options.Password.RequiredLength = 3;
-    options.Password.RequireDigit = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireLowercase = false;
     options.Password.RequireUppercase = false;
+    options.Password.RequireDigit = false;
 
+    options.User.RequireUniqueEmail = true;
 });
+//builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+//builder.Services.Configure<IdentityOptions>(options =>
+
+//{
+
+//    options.Password.RequireNonAlphanumeric = false;
+//    options.Password.RequiredLength = 3;
+//    options.Password.RequireDigit = false;
+//    options.Password.RequireUppercase = false;
+
+//});
 builder.Services.AddIdentity<UserDetails,IdentityRole>()
 
 
@@ -65,7 +76,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "Areas",
-    pattern: "{area:exists}/{controller=Urunler}/{action=Index}/{id?}");
+    pattern: "{area:exists}/{controller=Uruns}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
     name: "Urunlar",
