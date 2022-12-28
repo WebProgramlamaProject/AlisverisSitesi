@@ -7,7 +7,12 @@ namespace AlisverisSitesi.Controllers
 {
     public class CartController : Controller
     {
-        UrunContext _context = new UrunContext();
+        private readonly UrunContext _context;
+
+        public CartController(UrunContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             List<CartItem> cart = HttpContext.Session.GetJson<List<CartItem>>("Cart") ?? new List<CartItem>();
@@ -100,7 +105,13 @@ namespace AlisverisSitesi.Controllers
 
             return RedirectToAction("Index");
         }
-           
+        public IActionResult Checkout(UserDetails userId)
+        {
+
+          //  SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }
 

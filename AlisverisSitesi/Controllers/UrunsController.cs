@@ -6,14 +6,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AlisverisSitesi.Models;
-using AlisverisSitesi.Data;
+
 
 namespace AlisverisSitesi.Controllers
 {
     public class UrunsController : Controller
     {
-        
-        UrunContext _context = new UrunContext(); 
+
+        private readonly UrunContext _context;
+
+        public UrunsController(UrunContext context)
+        {
+            _context = context;
+        }
         public async Task<IActionResult> Index(string categorySlug = "", int p = 1)
         {
             int pageSize = 3;

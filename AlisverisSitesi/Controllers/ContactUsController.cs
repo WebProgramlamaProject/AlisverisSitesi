@@ -8,13 +8,18 @@ using Microsoft.EntityFrameworkCore;
 using AlisverisSitesi.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
-using AlisverisSitesi.Data;
+
 
 namespace AlisverisSitesi.Controllers
 {
     public class ContactUsController : Controller
     {
-        UrunContext _context = new UrunContext();
+        private readonly UrunContext _context;
+
+        public ContactUsController(UrunContext context)
+        {
+            _context = context;
+        }
 
         // GET: ContactUs
         [Authorize(Roles = "Admin")]

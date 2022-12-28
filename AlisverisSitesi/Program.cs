@@ -1,4 +1,4 @@
-using AlisverisSitesi.Data;
+
 using AlisverisSitesi.Infrastructure;
 using AlisverisSitesi.Models;
 using Microsoft.AspNetCore.Identity;
@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContext<UrunContext>(options =>
     options.UseSqlServer(connectionString));
 
 builder.Services.AddDistributedMemoryCache();
@@ -18,28 +18,28 @@ builder.Services.AddSession(options =>
     options.IdleTimeout = TimeSpan.FromMinutes(30);
     options.Cookie.IsEssential = true;
 });
-builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<UrunContext>().AddDefaultTokenProviders();
-builder.Services.Configure<IdentityOptions>(options =>
-{
-    options.Password.RequiredLength = 3;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequireLowercase = false;
-    options.Password.RequireUppercase = false;
-    options.Password.RequireDigit = false;
-
-    options.User.RequireUniqueEmail = true;
-});
-//builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+//builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<UrunContext>().AddDefaultTokenProviders();
 //builder.Services.Configure<IdentityOptions>(options =>
-
 //{
-
-//    options.Password.RequireNonAlphanumeric = false;
 //    options.Password.RequiredLength = 3;
-//    options.Password.RequireDigit = false;
+//    options.Password.RequireNonAlphanumeric = false;
+//    options.Password.RequireLowercase = false;
 //    options.Password.RequireUppercase = false;
+//    options.Password.RequireDigit = false;
 
+//    options.User.RequireUniqueEmail = true;
 //});
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+builder.Services.Configure<IdentityOptions>(options =>
+
+{
+
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequiredLength = 3;
+    options.Password.RequireDigit = false;
+    options.Password.RequireUppercase = false;
+
+});
 builder.Services.AddIdentity<UserDetails,IdentityRole>()
 
 
@@ -47,7 +47,7 @@ builder.Services.AddIdentity<UserDetails,IdentityRole>()
 
                 .AddDefaultUI()
 
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+    .AddEntityFrameworkStores<UrunContext>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

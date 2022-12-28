@@ -1,4 +1,7 @@
-﻿namespace AlisverisSitesi.Models
+﻿using System.Security.Claims;
+
+
+namespace AlisverisSitesi.Models
 {
     public class CartItem
     {
@@ -12,10 +15,12 @@
         }
         public string Image { get; set; }
 
+        
+       
         public CartItem()
         {
         }
-
+      
         public CartItem(Urun urun)
         {
             UrunId = urun.Id;
@@ -24,6 +29,7 @@
             Quantity = 1;
             Image = urun.Image;
         }
+
     }
 }
 

@@ -10,13 +10,15 @@ namespace AlisverisSitesi.Areas.Admin.Controllers
     [Authorize]
     public class UrunsController : Controller
     {
-        UrunContext _context = new UrunContext();
+        private readonly UrunContext _context;
+
+       
         private readonly IWebHostEnvironment _webHostEnvironment;
 
 
-        public UrunsController(IWebHostEnvironment webHostEnvironment)
+        public UrunsController(UrunContext context, IWebHostEnvironment webHostEnvironment)
         {
-          // this._context = context;
+            _context = context;
             this._webHostEnvironment = webHostEnvironment;
         }
 

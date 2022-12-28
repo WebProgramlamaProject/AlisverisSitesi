@@ -7,5 +7,8 @@ namespace AlisverisSitesi.Models
         public string Ad { get; set; }
         public string Soyad { get; set; }
 
+
+       
+
     }
 }

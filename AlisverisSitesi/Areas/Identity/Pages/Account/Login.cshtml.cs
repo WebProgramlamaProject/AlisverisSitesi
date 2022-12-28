@@ -15,11 +15,14 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using System.Security.Claims;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace AlisverisSitesi.Areas.Identity.Pages.Account
 {
     public class LoginModel : PageModel
     {
+
         private readonly SignInManager<UserDetails> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 

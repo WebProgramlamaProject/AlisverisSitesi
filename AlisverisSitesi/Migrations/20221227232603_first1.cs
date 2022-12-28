@@ -2,14 +2,20 @@
 
 #nullable disable
 
-namespace AlisverisSitesi.Data.Migrations
+namespace AlisverisSitesi.Migrations
 {
-    public partial class AddSoyad : Migration
+    public partial class first1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
                 name: "Ad",
+                table: "AspNetUsers",
+                type: "nvarchar(max)",
+                nullable: true);
+
+            migrationBuilder.AddColumn<string>(
+                name: "Discriminator",
                 table: "AspNetUsers",
                 type: "nvarchar(max)",
                 nullable: false,
@@ -19,14 +25,17 @@ namespace AlisverisSitesi.Data.Migrations
                 name: "Soyad",
                 table: "AspNetUsers",
                 type: "nvarchar(max)",
-                nullable: false,
-                defaultValue: "");
+                nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
                 name: "Ad",
+                table: "AspNetUsers");
+
+            migrationBuilder.DropColumn(
+                name: "Discriminator",
                 table: "AspNetUsers");
 
             migrationBuilder.DropColumn(

@@ -34,5 +34,7 @@ namespace AlisverisSitesi.Models
         [NotMapped]
         [FileExtension]
         public IFormFile ImageUpload { get; set; }
+
+       
     }
 }
