@@ -1,4 +1,10 @@
-﻿@model IEnumerable<Urun>
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+@model IEnumerable<Urun>
 
 @{
     ViewData["Title"] = "Urunlar";
@@ -8,16 +14,20 @@
 <h1>Urunlar</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">
+        @Localizer["Oluştur"]
+                           
+      
+    </a>
 </p>
 
 <table class="table">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Category</th>
-            <th>Image</th>
+            <th> @Localizer["Ad"]</th>
+            <th> @Localizer["Fiyat"]</th>
+            <th> @Localizer["Kategori"]</th>
+            <th> @Localizer["resim"]</th>
             <th></th>
         </tr>
     </thead>
@@ -38,8 +48,8 @@
                     <img src="/media/Urunlar/@item.Image" width="100" alt="" />
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="confirmDeletion">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id">@Localizer["Düzenle"]</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="confirmDeletion">@Localizer["Sil"]</a>
                 </td>
             </tr>
         }

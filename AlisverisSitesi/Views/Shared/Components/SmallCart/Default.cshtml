@@ -1,15 +1,22 @@
-﻿@model SmallCartViewModel
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+@model SmallCartViewModel
 
 @if (Model != null)
 {
-                <p>Items in cart: <span class="badge badge-primary">@Model.NumberOfItems</span></p>
-                <p>Total: <b>@Model.TotalAmount.ToString("C2")</b></p>
-                <a class="btn btn-primary" asp-controller="Cart" asp-action="Index">View Cart</a>
-                <a class="btn btn-danger" asp-controller="Cart" asp-action="Clear">Clear Cart</a>
+    <p>@Localizer["sepetedeki ürünler:"] <span class="badge badge-primary">@Model.NumberOfItems</span></p>
+    <p>@Localizer["toplam:"] <b>@Model.TotalAmount.ToString("C2")</b></p>
+    <a class="btn btn-primary" asp-controller="Cart" asp-action="Index">@Localizer["Spt Görüntüle"]</a>
+    <a class="btn btn-danger" asp-controller="Cart" asp-action="Clear">@Localizer["Spt Temizle"]</a>
 }
 else
 {
-                <p class="lead m-0">Your cart is empty</p>
+    <p class="lead m-0">@Localizer["Sepetiniz boş"]</p>
 }
 
 

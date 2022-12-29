@@ -1,4 +1,22 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = LocOptions.Value.SupportedUICultures
+    .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
+    .ToList();
+}
+
+
+
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -22,7 +40,7 @@
         <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                    <a class="navbar-brand  @menuTextColor" asp-area="" asp-controller="Home" asp-action="Index">AlisverisSitesi</a>
+                    <a class="navbar-brand  @menuTextColor" asp-area="" asp-controller="Home" asp-action="Index">@Localizer["AlisverisSitesi"]</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -30,31 +48,49 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                                <a class="nav-link  @menuTextColor" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                <a class="nav-link  @menuTextColor" asp-area="" asp-controller="Home" asp-action="Index">@Localizer["AnaSayfa"]</a>
                         </li>
-                            <li class="nav-item">
-                                <a class="nav-link  @menuTextColor" asp-area="" asp-controller="Uruns" asp-action="Index">UrunEkle</a>
-                            </li>
-
+                           
 
                             @if (User.Identity.IsAuthenticated)
                             {
                                 if (User.IsInRole("Admin"))
                                 {
-                                    <li class="nav-item">
-                                        <a class="nav-link @menuTextColor" asp-area="" asp-controller="ContactUs" asp-action="Index">Gelen Mesajlar</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link  @menuTextColor" asp-area="Admin" asp-controller="Uruns" asp-action="Index">Admin İşlemleri</a>
-                                    </li>
+                                    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
                                 }
                                 else
                                 {
                                     <li class="nav-item">
-                                        <a class="nav-link  @menuTextColor" asp-area="" asp-controller="ContactUs" asp-action="Create">İletişim</a>
+                                        <a class="nav-link  @menuTextColor" asp-area="" asp-controller="ContactUs" asp-action="Create">@Localizer["İletişim"]</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link  @menuTextColor" asp-area="" asp-controller="Uruns" asp-action="Index">@Localizer["Urunler"]</a>
+                                    </li>
+
                                 }
                             }
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right ">
+                           
+                            <li class="nav-item">
+                                <select class="nav-link text-dark"
+                                        onchange="SetCulture(this.value)" asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems">
+                                </select>
+                            </li>
+
+                     
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            @{
+                                string culture = "", uiculture = "";
+                                if (Context.Request.QueryString.HasValue)
+                                {
+                                    string url = Context.Request.QueryString.Value;
+                                    culture = Context.Request.Query["culture"];
+                                    uiculture = Context.Request.Query["ui-culture"];
+                                }
+                            }
+
                         </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -89,5 +125,13 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        function SetCulture(selectedValue) {
+            alert(selectedValue);
+            var url = window.location.href.split('?')[0];
+            var culture = "?culture=" + selectedValue + "&ui-culture=" + selectedValue;
+            window.location.href = url + culture;
+        }
+    </script>
 </body>
 </html>

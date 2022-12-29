@@ -3,36 +3,42 @@
 @{
     ViewData["Title"] = "Register";
 }
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
 
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
 <div class="container IndexDiv">
 
     <div class="row">
         <div class="col-4 container CenteredContainer text-center ">
             <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                <h5>Hesap Oluştur</h5>
+                <h5>@Localizer["Hesap Oluştur"]</h5>
                 <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
-                    <input asp-for="Input.Ad" class="form-control" placeholder="Ad " />
+                    <input asp-for="Input.Ad" class="form-control" placeholder="@Localizer["Ad"]" />
                 </div>
                 <div class="form-group">
-                    <input asp-for="Input.Soyad" class="form-control" placeholder="Soyad " />
+                    <input asp-for="Input.Soyad" class="form-control" placeholder="@Localizer["Soyad"]" />
                 </div>
                 <div class="form-group">
-                    <input asp-for="Input.Email" class="form-control" placeholder="Mail " />
+                    <input asp-for="Input.Email" class="form-control" placeholder="@Localizer["Mail"] " />
                 </div>
                 <div class="form-group">
-                    <input asp-for="Input.Password" class="form-control" placeholder="şifre " />
+                    <input asp-for="Input.Password" class="form-control" placeholder="@Localizer["şifre"] " />
                 </div>
 
 
                 <div class="form-group">
-                    <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Şifre tekrar" />
+                    <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="@Localizer["Şifre tekrar"]" />
                 </div>
 
 
 
-                <input id="registerSubmit" type="submit" class="btn btn-danger" value="Kayit ol"></input>
+                <input id="registerSubmit" type="submit" class="btn btn-danger" value="@Localizer["Kayit ol"]"></input>
             </form>
         </div>
 

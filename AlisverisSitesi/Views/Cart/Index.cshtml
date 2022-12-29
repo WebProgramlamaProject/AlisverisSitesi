@@ -1,4 +1,11 @@
-﻿@model CartViewModel
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+@model CartViewModel
 
 @{
     ViewData["Title"] = "Cart Overview";
@@ -8,11 +15,11 @@
 {
     <table class="table">
         <tr>
-            <th>Urun</th>
-            <th>Quantity</th>
+            <th>@Localizer["Urun"]</th>
+            <th>@Localizer["Miktar"]</th>
             <th></th>
-            <th>Price</th>
-            <th>Total</th>
+            <th>@Localizer["Fiyat"]</th>
+            <th>@Localizer["Toplam"]</th>
         </tr>
         @foreach (var item in Model.CartItems)
         {
@@ -22,7 +29,7 @@
                 <td>
                     <a class="btn btn-primary btn-sm" asp-action="Add" asp-route-id="@item.UrunId">+</a>
                     <a class="btn btn-info btn-sm" asp-action="Decrease" asp-route-id="@item.UrunId">-</a>
-                    <a class="btn btn-danger btn-sm" asp-action="Remove" asp-route-id="@item.UrunId">Remove</a>
+                    <a class="btn btn-danger btn-sm" asp-action="Remove" asp-route-id="@item.UrunId">@Localizer["Kaldır"]</a>
                 </td>
                 <td>@item.Price.ToString("C2")</td>
                 <td>@Model.CartItems.Where(x => x.UrunId == item.UrunId).Sum(x => x.Quantity * x.Price).ToString("C2")</td>
@@ -33,8 +40,8 @@
         </tr>
         <tr>
             <td class="text-right" colspan="4">
-                <a class="btn btn-danger" asp-action="Clear">Clear Cart</a>
-                <a class="btn btn-primary" asp-action="Checkout">Checkout</a>
+                <a class="btn btn-danger" asp-action="Clear">@Localizer["Sepeti Temizle"]</a>
+                <a class="btn btn-primary" asp-action="Checkout">@Localizer["Onayla"]</a>
             </td>
         </tr>
     </table>
@@ -43,5 +50,5 @@
 }
 else
 {
-    <h3 class="display-4 text-center">Your cart is empty.</h3>
+    <h3 class="display-4 text-center">@Localizer["Sepetiniz boş"]</h3>
 }

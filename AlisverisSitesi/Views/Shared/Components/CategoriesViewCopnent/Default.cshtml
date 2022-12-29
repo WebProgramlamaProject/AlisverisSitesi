@@ -1,8 +1,16 @@
-﻿@model IEnumerable<Category>
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+
+@model IEnumerable<Category>
 
 <ul class="list-group">
     <li class="list-group-item">
-        <a class="nav-link text-dark" asp-controller="Uruns" asp-action="Index" asp-route-categorySlug="">All Prodects</a>
+        <a class="nav-link text-dark" asp-controller="Uruns" asp-action="Index" asp-route-categorySlug="">@Localizer["Tüm ürünler"]</a>
     </li>
 
     @foreach (var item in Model)

@@ -1,6 +1,8 @@
 ﻿using AlisverisSitesi.Infrastructure;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
 
 namespace AlisverisSitesi.Models
 {
@@ -10,6 +12,7 @@ namespace AlisverisSitesi.Models
         public UrunContext(DbContextOptions<UrunContext> options) : base(options)
         { }
         public DbSet<Urun> Urunlar { get; set; }
+        [Display(Name = "Kategoriler")]
         public DbSet<Category> Categories { get; set; }
         public DbSet<ContactUs> Contacts { get; set; }
         public DbSet<UserDetails> UserDetailsi { get; set; }

@@ -1,40 +1,41 @@
-﻿@page
+﻿
+
+@page
 @model LoginModel
 
 @{
     ViewData["Title"] = "Log in";
 }
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
 
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
 <div class="container IndexDiv">
 <div class="row">
     <div class="col-3 container CenteredContainer text-center">
         <section>
             <form id="account" method="post">
-                <h5>HOŞ GELDİNİZ</h5>
+                    <h5>@Localizer["HOŞ GELDİNİZ"]</h5>
                 <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
-                    <input asp-for="Input.Email" class="form-control" placeholder="Emil" />
+                        <input asp-for="Input.Email" class="form-control" placeholder="@Localizer["Mail Adresi"]" />
                 </div>
 
                 <div class="form-group">
-                    <input asp-for="Input.Password" class="form-control" placeholder="Şifre " />
+                        <input asp-for="Input.Password" class="form-control" placeholder="@Localizer["Şifre"] " />
                 </div>
+               
                 <div>
-                    <div class="checkbox">
-                        <label asp-for="Input.RememberMe">
-                            <input asp-for="Input.RememberMe" style="width:auto;"/>
-                            @Html.DisplayNameFor(m => m.Input.RememberMe)
-                        </label>
-                    </div>
-                </div>
-                <div>
-                  
-                    <input id="login-submit" type="submit" class=" btn btn-danger text-white" value="giriş yap"></input>
+
+                        <input id="login-submit" type="submit" class=" btn btn-danger text-white" value="@Localizer["giriş yap"]"></input>
                 </div>
                 <div>
                     <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">şifreniz unutunuz mu??</a>
+                            <a id="forgot-password" asp-page="./ForgotPassword">@Localizer["şifreniz unutunuz mu??"]</a>
                     </p>
                    
                 </div>

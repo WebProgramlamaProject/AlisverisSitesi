@@ -1,4 +1,11 @@
-﻿@model AlisverisSitesi.Models.Urun
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+
+@model AlisverisSitesi.Models.Urun
 
 @{
     ViewData["Title"] = "Create";
@@ -31,9 +38,9 @@
             </div>
 
             <div class="form-group">
-                <label>Categories</label>
+                <label>@Localizer["kategori"]</label>
                 <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Categories">
-                    <option value="0">Choose a category</option>
+                    <option value="0">@Localizer["Bir kategori seçin"]</option>
                 </select>
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
@@ -46,14 +53,14 @@
             </div>
 
             <div class="form-group">
-                <button class="btn btn-primary">Create</button>
+                <button class="btn btn-primary">@Localizer["Oluştur"]</button>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index"> @Localizer["Listeye dön"]</a>
 </div>
 
 @section Scripts {

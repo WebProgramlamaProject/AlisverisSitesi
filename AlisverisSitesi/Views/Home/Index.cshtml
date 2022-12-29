@@ -1,11 +1,18 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+@{
     ViewData["Title"] = "Home Page";
 }
 
 
 
 <div class="IndexDiv">
-    <p> <h1 class="text-center font-weight-bolder">Alışveriş Sepeti</h1></p>
+    <p> <h1 class="text-center font-weight-bolder">@Localizer["Alışveriş Sitesi"]</h1></p>
 
     <div class=" eee row m-2">
        

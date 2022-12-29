@@ -2,7 +2,11 @@
 using AlisverisSitesi.Infrastructure;
 using AlisverisSitesi.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +33,26 @@ builder.Services.AddSession(options =>
 
 //    options.User.RequireUniqueEmail = true;
 //});
+
+builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat
+                 .Suffix).AddDataAnnotationsLocalization();
+
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    var supportedCultures = new[]
+    {
+                    new CultureInfo("tr"),
+                    new CultureInfo("en-US"),
+              
+
+                };
+    options.DefaultRequestCulture = new RequestCulture(culture: "tr", uiCulture: "tr");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+});
+            //services.AddControllersWithViews();
+        
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.Configure<IdentityOptions>(options =>
 
@@ -70,6 +94,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 
 app.UseAuthentication();
 app.UseAuthorization();

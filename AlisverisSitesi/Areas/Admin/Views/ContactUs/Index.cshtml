@@ -1,0 +1,60 @@
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+@model IEnumerable<AlisverisSitesi.Models.ContactUs>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+
+<div class="container IndexDiv">
+
+<table class=" aaa table">
+        <thead class="container aas">
+        <tr>
+            <th>
+                    @Localizer["Ad Soyad"]
+            </th>
+           
+            <th>
+                    @Localizer["Mail"]
+                </th>
+            <th>
+                    @Localizer["Konu"]
+                </th>
+
+            <th>
+                    @Localizer["mesaj"]
+                </th>
+           
+        </tr>
+    </thead>
+        <tbody class="container aas">
+@foreach (var item in Model) {
+            <tr >
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+
+            <td >
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+          
+                <td>
+                    @Html.DisplayFor(modelItem => item.Message)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

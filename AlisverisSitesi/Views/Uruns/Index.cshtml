@@ -1,10 +1,17 @@
-﻿@model IEnumerable<Urun>
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+@model IEnumerable<Urun>
 
 @{
     ViewData["Title"] = "Urunlar";
 }
 
-<h1>Prodects</h1>
+<h1>@Localizer["Ürünler"]</h1>
 
 <div class="row">
     @foreach (var item in Model)
@@ -19,7 +26,7 @@
                 @item.Price.ToString("C2")
             </p>
             <p>
-                <a class="btn btn-primary" asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id">Add to cart</a>
+                <a class="btn btn-primary" asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id">@Localizer["Sepete ekle"]</a>
             </p>
         </div>
         
