@@ -9,11 +9,11 @@ namespace AlisverisSitesi.Models
     public class ContactUs 
     {
         public int Id { get; set; }
-        [Required(ErrorMessage = "bu alan zorunlu")]
+        [Required(ErrorMessage = "Ad alanı zorunlu")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "bu alan zorunlu")]
+        [Required(ErrorMessage = "mesaj alanı zorunlu")]
         public string Message { get; set; }
-        [Required(ErrorMessage = "bu alan zorunlu")]
+        [Required(ErrorMessage = "Mail alanı zorunlu")]
         [EmailAddress]
         public string Email { get; set; }
         public string Subject { get; set; }

@@ -13,8 +13,10 @@
 
 @if (Model.CartItems.Count > 0)
 {
-    <table class="table">
-        <tr>
+          <div class="rr">
+        <table class="aaa table">
+      
+            <tr class="container aas">
             <th>@Localizer["Urun"]</th>
             <th>@Localizer["Miktar"]</th>
             <th></th>
@@ -23,7 +25,7 @@
         </tr>
         @foreach (var item in Model.CartItems)
         {
-            <tr>
+                <tr class="container aas">
                 <td>@item.UrunName</td>
                 <td>@item.Quantity</td>
                 <td>
@@ -35,20 +37,34 @@
                 <td>@Model.CartItems.Where(x => x.UrunId == item.UrunId).Sum(x => x.Quantity * x.Price).ToString("C2")</td>
             </tr>
         }
-        <tr>
+            <tr class="container aas">
             <td class="text-right" colspan="4">Grand Total: @Model.GrandTotal.ToString("C2")</td>
+                <td></td>
+
         </tr>
-        <tr>
+            <tr class="container aas">
             <td class="text-right" colspan="4">
                 <a class="btn btn-danger" asp-action="Clear">@Localizer["Sepeti Temizle"]</a>
                 <a class="btn btn-primary" asp-action="Checkout">@Localizer["Onayla"]</a>
             </td>
+            <td></td>
+          
         </tr>
     </table>
+    </div>
 
 
 }
+else if(TempData["sepeteOnaylama"]!=null)
+{
+        <div class="alert alert-success text-center notification">
+        @TempData["sepeteOnaylama"]
+    </div>
+}
 else
 {
-    <h3 class="display-4 text-center">@Localizer["Sepetiniz boş"]</h3>
+
+    <div class="alert alert-success text-center notification">
+        <div class="text-center">@Localizer["Sepetiniz boş"]</div>
+    </div>
 }

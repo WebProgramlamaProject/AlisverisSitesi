@@ -1,0 +1,58 @@
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<div class="IndexDiv">
+    <p> <h1 class="text-center font-weight-bolder">@Localizer["Admin"]</h1></p>
+
+    <div class=" eee row m-2">
+
+
+        <div class="eee row">
+
+            <div class="col-4">
+                <img src="~/images/shoppingcart2.png" class="sss  img-fluid" />
+
+
+            </div>
+            <div class="col-4">
+
+
+                        <img src="~/images/Admin.png" class="sss  img-fluid" />
+                
+
+            
+            </div>
+            <div class="col-4">
+                <img src="~/images/shoppingcart.png" class="sss  img-fluid" />
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+
+
+      
+    </div>
+
+</div>
+
+

@@ -11,30 +11,19 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Urunlar</h1>
 
-<p>
-    <a asp-action="Create">
-        @Localizer["Oluştur"]
-                           
-      
-    </a>
-</p>
-
-<table class="table">
-    <thead>
-        <tr>
+<div class="rr">
+    <table class="aaa table">
+        <tr class="container aas">
             <th> @Localizer["Ad"]</th>
             <th> @Localizer["Fiyat"]</th>
             <th> @Localizer["Kategori"]</th>
             <th> @Localizer["resim"]</th>
             <th></th>
         </tr>
-    </thead>
-    <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+            <tr class="container aas">
                 <td>
                     @item.Name
                 </td>
@@ -48,12 +37,19 @@
                     <img src="/media/Urunlar/@item.Image" width="100" alt="" />
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">@Localizer["Düzenle"]</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="confirmDeletion">@Localizer["Sil"]</a>
+
+
+
+
+
+                    <a class="btn btn-primary btn-sm" asp-action="Create">@Localizer["Oluştur"]</a>
+
+                    <a class="btn btn-info btn-sm" asp-action="Edit" asp-route-id="@item.Id">@Localizer["Düzenle"]</a>
+                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id" class="confirmDeletion">@Localizer["Sil"]</a>
+
                 </td>
             </tr>
         }
-    </tbody>
 </table>
 
 <div class="d-flex w-100 justify-content-center">

@@ -11,37 +11,37 @@
     ViewData["Title"] = "Urunlar";
 }
 
-<h1>@Localizer["Ürünler"]</h1>
 
-<div class="row">
-    @foreach (var item in Model)
-    {
-        <div class="col-4">
-            <img src="/media/Urunlar/@item.Image" class="img-fluid" alt="" />
-            <div>
-                <h4>@item.Name</h4>
-                @Html.Raw(item.Description)
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-4" >
+                <img src="/media/Urunlar/@item.Image" class="img-fluid" alt="" />
+                <div>
+                    <h4>@item.Name</h4>
+                    @Html.Raw(item.Description)
+                </div>
+                <p>
+                    @item.Price.ToString("C2")
+                </p>
+                <p>
+                    <a class="btn btn-primary" asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id">@Localizer["Sepete ekle"]</a>
+                </p>
             </div>
-            <p>
-                @item.Price.ToString("C2")
-            </p>
-            <p>
-                <a class="btn btn-primary" asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id">@Localizer["Sepete ekle"]</a>
-            </p>
-        </div>
-        
-    }
+
+        }
 
 
-    @if (ViewBag.TotalPages > 1)
-    {
-        <div class="d-flex w-100 justify-content-center">
-            <pagination page-count="@ViewBag.TotalPages"
-                    page-target="/Uruns/@ViewBag.CategorySlug"
-                    page-number="@ViewBag.PageNumber"
-                    page-range="@ViewBag.PageRange">
-            </pagination>
-        </div>
-    }
+        @if (ViewBag.TotalPages > 1)
+        {
+            <div class="d-flex w-100 justify-content-center">
+                <pagination page-count="@ViewBag.TotalPages"
+                        page-target="/Uruns/@ViewBag.CategorySlug"
+                        page-number="@ViewBag.PageNumber"
+                        page-range="@ViewBag.PageRange">
+                </pagination>
+            </div>
+        }
 
-</div>
+

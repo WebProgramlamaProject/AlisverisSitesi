@@ -11,13 +11,9 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 
 }
-
-
-<div class="container IndexDiv">
-
-<table class=" aaa table">
-        <thead class="container aas">
-        <tr>
+<div class="rr">
+    <table class="aaa table">
+        <tr class="ontainer aas">
             <th>
                     @Localizer["Ad Soyad"]
             </th>
@@ -25,6 +21,7 @@
             <th>
                     @Localizer["Mail"]
                 </th>
+            <th></th>
             <th>
                     @Localizer["Konu"]
                 </th>
@@ -34,10 +31,8 @@
                 </th>
            
         </tr>
-    </thead>
-        <tbody class="container aas">
 @foreach (var item in Model) {
-            <tr >
+            <tr class="ontainer aas">
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
@@ -45,6 +40,7 @@
             <td >
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
+            <td></td>
           
                 <td>
                     @Html.DisplayFor(modelItem => item.Message)
@@ -55,6 +51,5 @@
             </td>
         </tr>
 }
-    </tbody>
 </table>
 </div>

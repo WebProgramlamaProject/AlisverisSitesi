@@ -12,56 +12,119 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Create Product</h1>
 
-<div class="row">
-    <div class="col-md-4">
+
+
+
+
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                <div class="row text-white text-center" style="    position: fixed;
+background: linear-gradient(to left,#28347d,#19767D);
+    min-height:50%;
+    left: 0; right: 0;    top: 8%;
+
+
+
+    ">
+        <div class="col" style="  margin:15px;">
+            <div class="row" style="  padding:10px;">
+                   
+                    <div class="col-2">
+                        <tr>
+                        <td><label asp-for="Name" class="control-label"></label></td>
+                        <td>:</td>   
+                        </tr>
+                    
+                    </div>  
+                    <div class="col-10">
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+            <div class="row" style="  padding:10px;">
+
+                <div class="col-2">
+
+                    <tr>
+                        <td><label asp-for="Price" class="control-label"></label></td>
+                        <td>:</td>
+                    </tr>
+                </div>
+                <div class="col-10">
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <textarea asp-for="Description" class="form-control"></textarea>
-                <span asp-validation-for="Description" class="text-danger"></span>
+            <div class="row" style="  padding:10px;">
+
+                <div class="col-2">
+                    
+                    <tr>
+                        <td>
+                            <label>@Localizer["kategori"]</label>
+                        </td>
+                       
+                        <td>:</td>
+                    </tr>
+                </div>
+                <div class="col-10">
+
+
+                    <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Categories">
+                                <option value="0">@Localizer["Bir kategori seçin"]</option>
+                            </select>
+                            <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
+            <div class="row" style="  padding:10px;">
+
+                <div class="col-2">
+
+                    <tr>
+                        <td><label asp-for="Image" class="control-label"></label></td>
+                        <td>:</td>
+                    </tr>
+                    
+                </div>
+                <div class="col-10">
+                    <input asp-for="ImageUpload" class="form-control" />
+                    <img id="imgpreview" class="pt-2" />
+                    <span asp-validation-for="ImageUpload" class="text-danger"></span>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label>@Localizer["kategori"]</label>
-                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Categories">
-                    <option value="0">@Localizer["Bir kategori seçin"]</option>
-                </select>
-                <span asp-validation-for="CategoryId" class="text-danger"></span>
-            </div>
 
-            <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
-                <input asp-for="ImageUpload" class="form-control" />
-                <img id="imgpreview" class="pt-2" />
-                <span asp-validation-for="ImageUpload" class="text-danger"></span>
-            </div>
+            <div class="row" style="  padding:10px;">
 
-            <div class="form-group">
-                <button class="btn btn-primary">@Localizer["Oluştur"]</button>
+                <div class="col-2">
+                    <button class="btn btn-primary">@Localizer["Oluştur"]</button>
+                </div>
+                
             </div>
+        </div>       
+        <div class="col" style=" padding:10px; margin:15px;">
+
+                        <div class="form-group">
+                            <textarea asp-for="Description" class="form-control"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+
+                </div>
+
+
+            
         </form>
-    </div>
-</div>
 
-<div>
-    <a asp-action="Index"> @Localizer["Listeye dön"]</a>
-</div>
+
+
 
 @section Scripts {
     @{

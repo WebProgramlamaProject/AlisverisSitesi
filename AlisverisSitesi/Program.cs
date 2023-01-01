@@ -107,10 +107,11 @@ app.MapControllerRoute(
     name: "Urunlar",
     pattern: "/Urunlar/{categorySlug?}",
     defaults: new { controller = "Uruns", action = "Index" });
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
 app.MapRazorPages();
 
 

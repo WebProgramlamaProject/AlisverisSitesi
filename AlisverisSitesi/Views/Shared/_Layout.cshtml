@@ -79,7 +79,7 @@
                                 </select>
                             </li>
 
-                     
+                     @*
                             <div asp-validation-summary="All" class="text-danger"></div>
                             @{
                                 string culture = "", uiculture = "";
@@ -89,7 +89,7 @@
                                     culture = Context.Request.Query["culture"];
                                     uiculture = Context.Request.Query["ui-culture"];
                                 }
-                            }
+                            }*@
 
                         </ul>
                     <partial name="_LoginPartial" />
@@ -99,22 +99,37 @@
     </header>
     </div>
     <div class="container">
-    <main role="main" class="pb-3">
-        <div class="row">
-            <div class="col-3">
-                    <vc:categories-view-copnent/>
+        <main role="main" class="pb-3">
+            <div class="rr">
+                <div class="row" style=" margin:20px;">
+                    <div class="col-3">
+                        <vc:categories-view-copnent />
 
-                <div class="bg-success mt-3 p-3 text-white">
-                        <vc:small-cart/>
+                        <div class="bg-success mt-3 p-3 text-white">
+                            <vc:small-cart />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <partial name="_NotificationPartial" />
+                        @RenderBody()
+
+
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <partial name="_NotificationPartial" />
-                @RenderBody()
-            </div>
-        </div>
-    </main>
+
+
+            <div>
+
+        </main>
     </div>
+
+
+
+
+
+
+   
 
     <footer class="border-top footer text-muted" style="background: linear-gradient(to right,#283408,#197696);">
         <div class="container  @menuTextColor">

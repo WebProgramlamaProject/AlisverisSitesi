@@ -72,7 +72,14 @@ body {
     min-width: 100%;
 
 }
-
+.rr {
+    position: fixed;
+    background: linear-gradient(to right,#C4E0E0,#C4E0F9);
+    top: 8%;
+    left: 0;
+    min-height: 85%;
+    min-width: 100%;
+}
 .aas {
     background: linear-gradient(to left,#28347d,#19767D);
     color: white;
@@ -84,6 +91,10 @@ body {
     
 }
 .sss {
-   margin-left :150px;
-    max-width: 20%;
+   margin-left :70px;
+    max-width: 70%;
+}
+a {
+    color: white;
+    text-decoration: none;
 }

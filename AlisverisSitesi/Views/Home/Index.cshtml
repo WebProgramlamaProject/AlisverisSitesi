@@ -14,16 +14,42 @@
 <div class="IndexDiv">
     <p> <h1 class="text-center font-weight-bolder">@Localizer["Alışveriş Sitesi"]</h1></p>
 
-    <div class=" eee row m-2">
-       
-      
-      
-            
-                <img src="~/images/shoppingcart2.png" class="sss  img-fluid" />
+     <div class="eee row">
 
-        <img src="~/images/shoppingcart3.png" class="sss  img-fluid" />
+            <div class="col-4">
+            <img src="~/images/shoppingcart2.png" class="sss  img-fluid" />
 
+
+</div>
+        <div class="col-4">
+
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("Admin"))
+                {
+                    <img src="~/images/Admin.png" class="sss  img-fluid" />
+                }
+                else
+                {
+                    
+                        <img src="~/images/shoppingcart3.png" class="sss  img-fluid" />
+                  
+
+                }
+            }
+
+            </div>
+        <div class="col-4">
                 <img src="~/images/shoppingcart.png" class="sss  img-fluid" />
+
+</div>
+        </div>
+
+
+            
+
+
 
 
       

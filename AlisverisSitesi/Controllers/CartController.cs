@@ -107,8 +107,9 @@ namespace AlisverisSitesi.Controllers
         }
         public IActionResult Checkout(UserDetails userId)
         {
-
-          //  SaveChanges();
+            TempData["sepeteOnaylama"] = "Siparisini Onaylandi";
+            HttpContext.Session.Remove("Cart");
+            //  SaveChanges();
             return RedirectToAction("Index");
         }
 
