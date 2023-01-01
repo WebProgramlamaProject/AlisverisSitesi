@@ -124,7 +124,7 @@ namespace AlisverisSitesi.Areas.Admin.Controllers
                 _context.Update(urun);
                 await _context.SaveChangesAsync();
 
-                TempData["Success"] = "The product has been edited!";
+                TempData["ss"] = "Ürün Güncelendi";
             }
 
             return View(urun);

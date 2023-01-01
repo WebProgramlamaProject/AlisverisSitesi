@@ -21,7 +21,7 @@ namespace AlisverisSitesi.Controllers
         }
         public async Task<IActionResult> Index(string categorySlug = "", int p = 1)
         {
-            int pageSize = 3;
+            int pageSize =4;
             ViewBag.PageNumber = p;
             ViewBag.PageRange = pageSize;
             ViewBag.CategorySlug = categorySlug;

@@ -123,16 +123,28 @@
   <data name="Açıklama" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="Bir kategori seçmelisiniz" xml:space="preserve">
+    <value>You must choose a category</value>
+  </data>
   <data name="Fiyat" xml:space="preserve">
     <value>Price</value>
   </data>
   <data name="Kategori" xml:space="preserve">
     <value>Category</value>
   </data>
+  <data name="Lütfen bir değer girin" xml:space="preserve">
+    <value>Please enter a value</value>
+  </data>
+  <data name="Minimum uzunluk 2'dir" xml:space="preserve">
+    <value>Minimum length is 2</value>
+  </data>
   <data name="resim" xml:space="preserve">
     <value>Image</value>
   </data>
   <data name="Resim Yükleme" xml:space="preserve">
     <value>Image Upload</value>
+  </data>
+  <data name="tr" xml:space="preserve">
+    <value>en</value>
   </data>
 </root>

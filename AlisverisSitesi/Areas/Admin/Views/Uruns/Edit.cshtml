@@ -21,14 +21,20 @@
             <input type="hidden" asp-for="Image" />
 
             <div class="row text-white text-center" style="    position: fixed;
-background: linear-gradient(to left,#28347d,#19767D);
-    min-height:50%;
-    left: 0; right: 0;    top: 8%;
+                                                               background: linear-gradient(to left,#28347d,#19767D);
+                                                            min-height:50%;
+                                                            left: 0; right: 0;    top: 8%;">
 
+               
 
-
-    ">
+                                                                                        
                 <div class="col" style="  margin:15px;">
+                    @if (TempData["ss"] != null)
+                    {
+                        <div class="alert alert-success text-black text-center notification">
+                            @TempData["ss"]
+                        </div>
+                    }
                     <div class="row" style="  padding:10px;">
 
                         <div class="col-2">
@@ -104,7 +110,7 @@ background: linear-gradient(to left,#28347d,#19767D);
                     <div class="row" style="  padding:10px;">
 
                         <div class="col-2">
-                            <button class="btn btn-primary">@Localizer["Oluştur"]</button>
+                            <button class="btn btn-primary">@Localizer["Düzenle"]</button>
                         </div>
 
                     </div>
@@ -115,16 +121,24 @@ background: linear-gradient(to left,#28347d,#19767D);
                         <textarea asp-for="Description" class="form-control"></textarea>
                         <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
-
+                    <div lass="col" style=" padding:10px; margin:15px;">
+                        <a asp-action="Index" class="btn btn-primary">Back to List</a>
+                    </div>
 
                 </div>
+               
+            </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index"> @Localizer["Listeye dön"]</a>
-</div>
+
+
+
+
+
+
+
 
 @section Scripts {
     @{

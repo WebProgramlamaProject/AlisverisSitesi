@@ -1,4 +1,7 @@
-﻿using AlisverisSitesi.Infrastructure;
+﻿using Microsoft.AspNetCore.Mvc.Localization;
+using System.Net.NetworkInformation;
+using System;
+using AlisverisSitesi.Infrastructure;
 using AlisverisSitesi.Models;
 using AlisverisSitesi.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -94,7 +97,7 @@ namespace AlisverisSitesi.Controllers
                 HttpContext.Session.SetJson("Cart", cart);
             }
 
-            TempData["Success"] = "The product has been removed!";
+            TempData["Success"] = "Ürününüz kaldırıldı!";
 
             return RedirectToAction("Index");
         }
@@ -107,7 +110,7 @@ namespace AlisverisSitesi.Controllers
         }
         public IActionResult Checkout(UserDetails userId)
         {
-            TempData["sepeteOnaylama"] = "Siparisini Onaylandi";
+            TempData["sepeteOnaylama"] = "Siparişiniz Onaylandi";
             HttpContext.Session.Remove("Cart");
             //  SaveChanges();
             return RedirectToAction("Index");

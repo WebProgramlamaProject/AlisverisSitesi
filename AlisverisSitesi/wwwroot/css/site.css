@@ -81,10 +81,9 @@ body {
     min-width: 100%;
 }
 .aas {
-    background: linear-gradient(to left,#28347d,#19767D);
+    background: linear-gradient(to left,#004365,#004365);
     color: white;
     font-size: 15px;
-    
 }
 .aaa {
     max-width: 100%;
@@ -94,6 +93,16 @@ body {
    margin-left :70px;
     max-width: 70%;
 }
+.ssss {
+    position: relative;
+    
+    float: left;
+    height: 50%;
+    width: 100%;
+ 
+}
+
+
 a {
     color: white;
     text-decoration: none;

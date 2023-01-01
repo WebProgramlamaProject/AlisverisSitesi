@@ -1,21 +1,16 @@
-﻿@using Microsoft.AspNetCore.Builder
-@using Microsoft.AspNetCore.Localization
-@using Microsoft.Extensions.Options
-@using Microsoft.AspNetCore.Mvc.Localization
-
-@inject IViewLocalizer Localizer
-@inject IOptions<RequestLocalizationOptions> LocOptions
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
 
 @model IEnumerable<Category>
 
 <ul class="list-group">
-    <li class="list-group-item" style="background: linear-gradient(to left,#28347d,#19767D);">
-        <a class="nav-link text-white" asp-controller="Uruns" asp-action="Index" asp-route-categorySlug="">@Localizer["Tüm ürünler"]</a>
+    <li class="list-group-item" style="background: linear-gradient(to left,#19767D,#28347d);">
+        <a class="nav-link text-white" asp-controller="Uruns" asp-action="Index" asp-route-categorySlug="">@localizer["Tüm ürünler"]</a>
     </li>
 
     @foreach (var item in Model)
     {
-        <li class="list-group-item" style="background:linear-gradient(to left,#28347d,#04a7b4);">
+        <li class="list-group-item" style="background: linear-gradient(to left,#19767D,#28347d);">
             <a class="nav-link text-white" asp-controller="Uruns" asp-action="Index" asp-route-categorySlug=@item.Slug>@item.Name</a>
         </li>
     }

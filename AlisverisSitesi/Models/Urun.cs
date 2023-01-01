@@ -18,15 +18,15 @@ namespace AlisverisSitesi.Models
         
         public string Slug { get; set; }
 
-        [Required, MinLength(4, ErrorMessage = "Minimum length is 2")]
+        [Required, MinLength(4, ErrorMessage = "Minimum uzunluk 2'dir")]
         [Display(Name = "Açıklama")]
         public string Description { get; set; }
         [Display(Name = "Fiyat")]
         [Required]
-        [Range(0.01, double.MaxValue, ErrorMessage = "Please enter a value")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "Lütfen bir değer girin")]
         [Column(TypeName = "decimal(8, 2)")]
         public decimal Price { get; set; }
-        [Required,Range(1, int.MaxValue, ErrorMessage = "You must choose a category")]
+        [Required,Range(1, int.MaxValue, ErrorMessage = "Bir kategori seçmelisiniz")]
         public int CategoryId { get; set; }
         [Display(Name = "Kategori")]
         public Category Category { get; set; }

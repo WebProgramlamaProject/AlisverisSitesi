@@ -38,7 +38,7 @@ namespace AlisverisSitesi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("AlisverisSitesi.Models.ContactUs", b =>
@@ -66,7 +66,7 @@ namespace AlisverisSitesi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contacts", (string)null);
+                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("AlisverisSitesi.Models.Urun", b =>
@@ -101,7 +101,7 @@ namespace AlisverisSitesi.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Urunlar", (string)null);
+                    b.ToTable("Urunlar");
                 });
 
             modelBuilder.Entity("AlisverisSitesi.Models.UserDetails", b =>

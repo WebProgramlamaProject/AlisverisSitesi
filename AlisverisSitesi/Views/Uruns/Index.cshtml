@@ -1,5 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Builder
-@using Microsoft.AspNetCore.Localization
+
+
+
 @using Microsoft.Extensions.Options
 @using Microsoft.AspNetCore.Mvc.Localization
 
@@ -16,8 +18,8 @@
     <div class="row">
         @foreach (var item in Model)
         {
-            <div class="col-4" >
-                <img src="/media/Urunlar/@item.Image" class="img-fluid" alt="" />
+            <div class="col-3" >
+                <img src="/media/Urunlar/@item.Image" class="ssss" alt="" />
                 <div>
                     <h4>@item.Name</h4>
                     @Html.Raw(item.Description)
@@ -45,3 +47,4 @@
         }
 
 
+                    </div>
